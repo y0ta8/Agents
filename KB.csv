@@ -1,0 +1,6 @@
+id,signature_type,match_field,pattern,reaction_type,reaction_cmd,device_type,confidence
+KB-001,process_create,CommandLine,.*mimikatz.* ,block_process,"taskkill /IM mimikatz.exe /F",Windows,0.95
+KB-002,network_listen,LocalPort,4444,block_port,"netsh advfirewall firewall add rule name=Block4444 dir=in action=block protocol=TCP localport=4444",Windows,0.9
+KB-003,login_fail,Username,.*admin.*,notify,"echo 'suspicious login attempts for admin' >> /var/log/alerts.log",Linux,0.6
+KB-004,file_access,Path,.*\\Passwords\\.* ,isolate_host,"reg add HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters /v fDenyTSConnections /t REG_DWORD /d 1 /f",Windows,0.8
+KB-005,k8s_pod,image,.*bad-image:latest,delete_pod,"kubectl delete pod {pod} -n {ns}",Kubernetes,0.92

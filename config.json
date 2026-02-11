@@ -1,0 +1,6 @@
+{
+  "orchestrator_ip": "16.170.126.187",
+  "orchestrator_port": 8443,
+  "agent_id": "win-agent-1",
+  "send_interval": 5
+}

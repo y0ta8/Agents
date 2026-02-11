@@ -1,0 +1,11 @@
+{
+  "ep_id": "EP-2025-001",
+  "goal": "Block suspicious listener port 4444 on Windows endpoint",
+  "trigger": {"kb_id": "KB-002", "min_confidence": 0.85},
+  "conditions": {"device_type": "Windows", "time_window_seconds": 60},
+  "actions": [
+    {"step": 1, "action_type": "log", "params": {"message": "KB-002 matched on {host}"}},
+    {"step": 2, "action_type": "dry_run", "params": {"command":"netsh advfirewall firewall add rule name=Block4444 dir=in action=block protocol=TCP localport=4444"}},
+    {"step": 3, "action_type": "enforce", "params": {"command":"netsh advfirewall firewall add rule name=Block4444 dir=in action=block protocol=TCP localport=4444"}, "preconditions": {"human_approval": false}}
+  ]
+}

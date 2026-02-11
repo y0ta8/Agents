@@ -1,0 +1,13 @@
+[
+  {
+    "host": "Agent1",
+    "reason": "mimikatz detected",
+    "time": "2025-11-10T12:17:24.171675"
+  },
+  {
+    "host": "Agent1",
+    "reason": "KB match KB-001: process_create on CommandLine",
+    "time": "2025-11-10T12:37:20.428749",
+    "kb": "KB-001"
+  }
+]
